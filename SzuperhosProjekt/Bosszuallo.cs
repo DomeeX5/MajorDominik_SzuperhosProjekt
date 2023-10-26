@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,19 +23,22 @@ namespace SzuperhosProjekt
 
         public bool LegyoziE(ISzuperhos szuperhos)
         {
-            if (szuperhos is Bosszuallo)
+            if (szuperhos is Batman)
             {
-                Bosszuallo ellenfel = (Bosszuallo)szuperhos;
-                if (vanEGyengesege && szuperero < ellenfel.szuperero)
-                {
-                    return true;
-                } 
-                if (szuperhos is Batman && szuperero * 2 >= ellenfel.szuperero)
+                if ((szuperhos as Batman)!.MekkoraAzEreje() * 2 <= this.Szuperero)
                 {
                     return true;
                 }
+                return false;
             }
-            return false;
+            else
+            {
+                if ((szuperhos as Bosszuallo)!.vanEGyengesege == true && this.szuperero > szuperhos.MekkoraAzEreje())
+                {
+                    return true;
+                }
+                return false;
+            }
         }
 
         public double MekkoraAzEreje()

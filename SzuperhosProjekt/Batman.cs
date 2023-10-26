@@ -12,7 +12,7 @@ namespace SzuperhosProjekt
 
         public Batman()
         {
-            this.lelemenyesseg = 100;
+            lelemenyesseg = 100;
         }
 
         public void KutyutKeszit()
@@ -22,20 +22,16 @@ namespace SzuperhosProjekt
 
         public bool LegyoziE(ISzuperhos szuperhos)
         {
-            if (szuperhos is Bosszuallo)
+            if (lelemenyesseg > szuperhos.MekkoraAzEreje())
             {
-                Bosszuallo ellenfel = (Bosszuallo)szuperhos;
-                if (lelemenyesseg >= ellenfel.Szuperero)
-                {
-                    return true;
-                }
+                return true;
             }
             return false;
         }
 
         public double MekkoraAzEreje()
         {
-            return lelemenyesseg*2;
+            return lelemenyesseg * 2;
         }
 
 

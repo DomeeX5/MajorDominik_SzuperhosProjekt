@@ -10,9 +10,16 @@ namespace SzuperhosProjekt
     public static class Kepregeny
     {
         public static List<ISzuperhos> szuperhosok = new List<ISzuperhos>();
-        public static void Szereplok(string faljEleresiUtvonal)
+        public static void Szereplok(string faljnev)
         {
-            
+            using (var fileReader = new StreamReader(faljnev))
+            {
+                string[] darabol;
+                while (!fileReader.EndOfStream)
+                {
+                    darabol = fileReader.ReadLine().Split(' ');
+                }
+            }
         }
         public static void Szuperhosok()
         {
