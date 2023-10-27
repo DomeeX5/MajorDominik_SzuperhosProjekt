@@ -21,7 +21,7 @@ namespace SzuperhosProjekt
         public double Szuperero { get => szuperero; set => szuperero = value; }
         public bool VanEGyengesege { get => vanEGyengesege; set => vanEGyengesege = value; }
 
-        public bool LegyoziE(ISzuperhos szuperhos)
+        public virtual bool LegyoziE(ISzuperhos szuperhos)
         {
             if (szuperhos is Batman)
             {
@@ -41,7 +41,7 @@ namespace SzuperhosProjekt
             }
         }
 
-        public double MekkoraAzEreje()
+        public virtual double MekkoraAzEreje()
         {
             return szuperero;
         }
